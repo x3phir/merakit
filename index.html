@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Merajut Asa Kita - Community Landing Page</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#f2590d",
+                        "background-light": "#f8f6f5",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        display: [
+                            "Helvetica Neue",
+                            "Helvetica",
+                            "Arial",
+                            "sans-serif"
+                        ]
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        lg: "1rem",
+                        xl: "1.5rem",
+                        full: "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d4d4d4;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c1c1c1;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#1c120d] dark:text-[#fcf9f8] font-display overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+        <div
+            class="w-full max-w-[1280px] rounded-full border border-white/20 bg-white/70 backdrop-blur-md dark:bg-background-dark/70 dark:border-white/10 shadow-lg transition-all duration-300">
+            <div class="flex items-center justify-between px-6 py-3 lg:px-8">
+                <div class="flex items-center gap-3">
+                    <div class="flex items-center justify-center size-9 rounded-full bg-primary text-white">
+                        <span class="material-symbols-outlined text-xl">gesture</span>
+                    </div>
+                    <h2 class="text-base font-bold leading-tight tracking-tight text-[#1c120d] dark:text-white">
+                        Merajut Asa Kita
+                    </h2>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a class="text-xs font-bold hover:text-primary transition-colors uppercase tracking-wider"
+                        href="#about">About</a>
+                    <a class="text-xs font-bold hover:text-primary transition-colors uppercase tracking-wider"
+                        href="#impact">Impact</a>
+                    <a class="text-xs font-bold hover:text-primary transition-colors uppercase tracking-wider"
+                        href="#packages">Packages</a>
+                    <a class="text-xs font-bold hover:text-primary transition-colors uppercase tracking-wider"
+                        href="#gallery">Gallery</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button
+                        class="hidden md:flex items-center justify-center overflow-hidden rounded-full h-9 px-6 bg-primary hover:bg-primary/90 transition-all text-white text-xs font-bold shadow-md hover:scale-105 active:scale-95">
+                        Book Now
+                    </button>
+                    <button class="md:hidden flex items-center justify-center text-[#1c120d] dark:text-white">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative w-full pt-28 pb-10 px-4 md:px-8 lg:px-10">
+        <div
+            class="w-full max-w-[1400px] mx-auto rounded-[2rem] md:rounded-[3rem] h-[600px] md:h-[750px] relative overflow-hidden bg-gray-900 shadow-2xl">
+            <div class="absolute inset-0 bg-cover bg-center scale-105"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRZW5jDnn1IJG1lOvkHxR37spR9pYYtaJTfTQzh9tgp241n711PhpobRg3u0giyOzGpYaPQxvRXN7JXcZZAZRgZcVXipjT7pskt2SfspADJlLEvZMQ40rdtl4nNpMHjh7fX1o5zq56_ErP6tx76_sgWAXjuOtFV7XZRIJWwlrI353As03B5JCS6SDrrQ4nX12kTHp9uVCTdAtizK8NpI0MxTQ9-7ItAkm9YzMGTZTCJ5dCZC5dEemES78Ohct-Mc3zCOUhQz6-w9oL');">
+            </div>
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+
+            <div class="absolute inset-0 flex flex-col items-center justify-center px-6 text-center z-10">
+                <div class="max-w-[850px] flex flex-col items-center gap-6">
+                    <h1 class="text-white text-4xl md:text-7xl leading-[1.1] tracking-tight font-bold">
+                        Merajut Asa Kita
+                    </h1>
+                    <p class="text-lg md:text-xl text-white/90 max-w-2xl font-light">
+                        Komunitas yang merajut harapan, karya, dan kebersamaan di Kampung Binong Jati.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                        <button
+                            class="flex h-14 items-center justify-center rounded-full bg-primary px-10 text-base font-bold text-white shadow-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300">
+                            Kenali Komunitas Kami
+                        </button>
+                        <button
+                            class="flex h-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/30 px-10 text-base font-bold text-white hover:bg-white/20 transition-all">
+                            <span class="material-symbols-outlined mr-2">play_circle</span>
+                            Tonton Profil
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button
+                class="absolute bottom-10 right-10 z-20 flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 backdrop-blur-md hover:bg-white/20 transition-all border border-white/20 text-white text-xs font-bold tracking-widest uppercase">
+                <span class="material-symbols-outlined text-lg">volume_up</span>
+                <span class="hidden sm:inline">Play Sound</span>
+            </button>
+        </div>
+    </section>
+    <!-- About Us Section -->
+    <section class="py-16 md:py-24 px-6 md:px-10 lg:px-20 bg-background-light dark:bg-background-dark" id="about">
+        <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="flex flex-col gap-6">
+                <div class="flex flex-col gap-2">
+                    <span class="text-primary font-bold tracking-wider text-sm uppercase">Tentang Kami</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-[#1c120d] dark:text-white leading-tight">
+                        Ruang Tumbuh &amp; Berkarya Bersama
+                    </h2>
+                </div>
+                <div class="space-y-4 text-base md:text-lg text-[#1c120d]/80 dark:text-white/80 leading-relaxed">
+                    <p>
+                        Merajut Asa Kita diinisiasi oleh semangat anak muda Kampung Binong Jati yang merindukan sebuah
+                        ruang belajar dan berkarya bersama yang inklusif. Kami percaya bahwa setiap tangan memiliki
+                        cerita, dan setiap helai benang dapat dirajut menjadi harapan baru.
+                    </p>
+                    <p>
+                        Disini, kami mengajak perempuan—termasuk teman-teman difabel—untuk tidak hanya belajar teknik
+                        merajut, tetapi juga menciptakan produk rajut tangan berkualitas tinggi yang memiliki nilai
+                        ekonomi.
+                    </p>
+                    <p>
+                        Lebih dari sekadar komunitas hobi, kami membangun kemandirian melalui karya, menciptakan
+                        ekosistem pendukung yang hangat, dan membuktikan bahwa keterbatasan fisik bukanlah penghalang
+                        untuk produktivitas.
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col gap-4 mt-8">
+                    <div class="aspect-[3/4] rounded-xl overflow-hidden shadow-md">
+                        <img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                            data-alt="Women sitting in a circle knitting together in a bright room"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmteg3Kyoe1izuWQfcm2UbvZ-WqFNkSvGc18HDF4y8kbsL81jfwI7eAHS4wCRkWGTULrNmu11u31cXe6_sBG6HLZk3tECXsRUIccYKT30DqVXx2_unoxidxUl2WfXHLempUwUCbNbmz6Qc--j5KANbY4HvaA7Kq-KUo03sRAFSyWJl62n2un9gxXV4vJkJA3HMp8ERwWCrEux-jKiLeznsHnt3BkipSYoxIXIsL2lPiFI0BdKFEGc_zpelQAWIisF1hT09NYYNEzUT" />
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="aspect-[4/3] rounded-xl overflow-hidden shadow-md">
+                        <img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                            data-alt="Close up of detailed colorful knitted fabric texture"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuApfdnbelDRBau_0XtmtDZHRKl4xJf4m9Jw7dmLm0PCB2XTYltIhmer8iB16w1TwhI3fc7R8eCPgzVmiZlbS5aS01p7G9cCeyrBM2wOHSOsiSrPH82dII8wgKhh7aHHLCG5spnE3BmxVMQrZD0hhmd6Ii3HhaqUic3jCTMxnEGQbjThtr92QHvkfZ_rkaozCWUQ5qpTVsMTU4ltMmE1Vbvkb5iuatp8DS5iP1X2_fKfZzkOypNQsS7SbslL863TywGNKwqUSPm6DZCA" />
+                    </div>
+                    <div class="aspect-[3/4] rounded-xl overflow-hidden shadow-md">
+                        <img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                            data-alt="A person teaching another person how to use knitting needles"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuByNHM-XJGOrlYBLav4MSwnNG65dmNa8BxWKl1vwv10Hq_bnvgpVvU32qfYPia5sVng6r0jK3RHfvAbOM5fb2KAia0K3x_bONpnEDTnyZE-ay4wvpYhiawCO6Dnx8OOChzV3ZY2iWI92OdJV8GqdszlqTv2mPe0obKZn8Oyn7aQgh4wMUxl2bK_Swu7l1bZ5T2Lp-480q7Ype6pr-Z0mhx6zcjl-lWRec0aFHWz8BJkVzxlJGPSZNDJqzBqasuO9cAreIwVcB4Ksmq0" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Social Impact Section -->
+    <section class="py-12 bg-white dark:bg-[#1a100c] border-y border-[#f4ebe7] dark:border-white/5" id="impact">
+        <div class="max-w-[1280px] mx-auto px-6 md:px-10">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#1c120d] dark:text-white">Dampak Sosial Kami</h2>
+                <p class="text-[#1c120d]/60 dark:text-white/60 mt-2">Membangun perubahan nyata dari langkah kecil.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Stat Card 1 -->
+                <div
+                    class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-shadow border border-transparent hover:border-primary/20">
+                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                        <span class="material-symbols-outlined text-3xl">diversity_3</span>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#1c120d] dark:text-white mb-2">Inklusif</h3>
+                    <p class="text-sm font-medium text-[#1c120d]/70 dark:text-white/70">Perempuan &amp; difabel terlibat
+                        aktif</p>
+                </div>
+                <!-- Stat Card 2 -->
+                <div
+                    class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-shadow border border-transparent hover:border-primary/20">
+                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                        <span class="material-symbols-outlined text-3xl">checkroom</span>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#1c120d] dark:text-white mb-2">100%</h3>
+                    <p class="text-sm font-medium text-[#1c120d]/70 dark:text-white/70">Produk rajut handmade &amp;
+                        lokal</p>
+                </div>
+                <!-- Stat Card 3 -->
+                <div
+                    class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-shadow border border-transparent hover:border-primary/20">
+                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                        <span class="material-symbols-outlined text-3xl">volunteer_activism</span>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#1c120d] dark:text-white mb-2">Komunitas</h3>
+                    <p class="text-sm font-medium text-[#1c120d]/70 dark:text-white/70">Ruang belajar aman &amp;
+                        suportif</p>
+                </div>
+                <!-- Stat Card 4 -->
+                <div
+                    class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-shadow border border-transparent hover:border-primary/20">
+                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                        <span class="material-symbols-outlined text-3xl">potted_plant</span>
+                    </div>
+                    <h3 class="text-3xl font-black text-[#1c120d] dark:text-white mb-2">Lokal</h3>
+                    <p class="text-sm font-medium text-[#1c120d]/70 dark:text-white/70">Ekonomi kreatif berbasis kampung
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tour Packages Section -->
+    <section class="py-16 md:py-24 px-6 bg-background-light dark:bg-background-dark" id="packages">
+        <div class="max-w-[1280px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl md:text-4xl font-black text-[#1c120d] dark:text-white mb-4">Creative Tour
+                        Packages</h2>
+                    <p class="text-lg text-[#1c120d]/70 dark:text-white/70">
+                        Rasakan pengalaman langsung merajut bersama warga lokal, belajar teknik baru, dan bawa pulang
+                        karya buatanmu sendiri.
+                    </p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Package 1 -->
+                <div
+                    class="flex flex-col rounded-xl border border-[#e8d7ce] dark:border-white/10 bg-white dark:bg-[#1f1612] p-6 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
+                    <div class="mb-4">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wide">Pemula</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1c120d] dark:text-white mb-2">Basic Knitting Workshop</h3>
+                    <p class="text-[#1c120d]/60 dark:text-white/60 text-sm mb-6 h-10">
+                        Belajar dasar merajut dari nol sampai bisa membuat coaster sederhana.
+                    </p>
+                    <div class="mt-auto flex flex-col gap-6">
+                        <div>
+                            <p class="text-sm text-[#1c120d]/60 dark:text-white/60 mb-1">Harga per orang</p>
+                            <p class="flex items-baseline gap-1 text-primary">
+                                <span class="text-3xl font-black tracking-tight">Rp194.000</span>
+                                <span class="text-sm font-bold text-[#1c120d] dark:text-white">/ pax</span>
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
+                                <span class="material-symbols-outlined text-primary text-xl">schedule</span>
+                                <span>Durasi 3 Jam</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
+                                <span class="material-symbols-outlined text-primary text-xl">inventory_2</span>
+                                <span>Bahan &amp; Alat Disediakan</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
+                                <span class="material-symbols-outlined text-primary text-xl">group</span>
+                                <span>Min. 5 Peserta</span>
+                            </div>
+                        </div>
+                        <button
+                            class="flex w-full items-center justify-center rounded-lg h-12 px-4 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold transition-colors gap-2">
+                            <span class="material-symbols-outlined">chat</span>
+                            Reservasi via WhatsApp
+                        </button>
+                    </div>
+                </div>
+                <!-- Package 2 -->
+                <div
+                    class="flex flex-col rounded-xl border-2 border-primary/20 bg-white dark:bg-[#1f1612] p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 relative">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Terpopuler
+                    </div>
+                    <div class="mb-4 mt-2">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wide">Lanjutan</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1c120d] dark:text-white mb-2">Intermediate Crafting</h3>
+                    <p class="text-[#1c120d]/60 dark:text-white/60 text-sm mb-6 h-10">
+                        Eksplorasi teknik rajut variatif untuk membuat dompet atau tas kecil.
+                    </p>
+                    <div class="mt-auto flex flex-col gap-6">
+                        <div>
+                            <p class="text-sm text-[#1c120d]/60 dark:text-white/60 mb-1">Harga per orang</p>
+                            <p class="flex items-baseline gap-1 text-primary">
+                                <span class="text-3xl font-black tracking-tight">Rp250.000</span>
+                                <span class="text-sm font-bold text-[#1c120d] dark:text-white">/ pax</span>
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
+                                <span class="material-symbols-outlined text-primary text-xl">schedule</span>
+                                <span>Durasi 5 Jam</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
+                                <span class="material-symbols-outlined text-primary text-xl">stars</span>
+                                <span>Teknik Lanjutan</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
+                                <span class="material-symbols-outlined text-primary text-xl">bakery_dining</span>
+                                <span>Snack Termasuk</span>
+                            </div>
+                        </div>
+                        <button
+                            class="flex w-full items-center justify-center rounded-lg h-12 px-4 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold transition-colors gap-2">
+                            <span class="material-symbols-outlined">chat</span>
+                            Reservasi via WhatsApp
+                        </button>
+                    </div>
+                </div>
+                <!-- Package 3 -->
+                <div
+                    class="flex flex-col rounded-xl border border-[#e8d7ce] dark:border-white/10 bg-white dark:bg-[#1f1612] p-6 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
+                    <div class="mb-4">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-wide">Wisata
+                            Lengkap</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1c120d] dark:text-white mb-2">Full Community Tour</h3>
+                    <p class="text-[#1c120d]/60 dark:text-white/60 text-sm mb-6 h-10">
+                        Pengalaman total: workshop, interaksi warga, dan tur keliling kampung.
+                    </p>
+                    <div class="mt-auto flex flex-col gap-6">
+                        <div>
+                            <p class="text-sm text-[#1c120d]/60 dark:text-white/60 mb-1">Harga per orang</p>
+                            <p class="flex items-baseline gap-1 text-primary">
+                                <span class="text-3xl font-black tracking-tight">Rp350.000</span>
+                                <span class="text-sm font-bold text-[#1c120d] dark:text-white">/ pax</span>
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
+                                <span class="material-symbols-outlined text-primary text-xl">schedule</span>
+                                <span>Seharian (Full Day)</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
+                                <span class="material-symbols-outlined text-primary text-xl">restaurant</span>
+                                <span>Makan Siang Khas</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
+                                <span class="material-symbols-outlined text-primary text-xl">map</span>
+                                <span>Tour Kampung Binong</span>
+                            </div>
+                        </div>
+                        <button
+                            class="flex w-full items-center justify-center rounded-lg h-12 px-4 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold transition-colors gap-2">
+                            <span class="material-symbols-outlined">chat</span>
+                            Reservasi via WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section
+        class="py-16 px-6 bg-background-light dark:bg-background-dark border-t border-[#f4ebe7] dark:border-white/5"
+        id="gallery">
+        <div class="max-w-[1280px] mx-auto">
+            <h2 class="text-3xl font-black text-[#1c120d] dark:text-white mb-8 text-center">Galeri Kegiatan</h2>
+            <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Hands holding knitting needles working on a brown scarf"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_0y6Gt_B0VQdnPUcVCELuleAAgR1J9W2uP4h_gnJFVWDE8IiWNXnAxAFx8OU3ImFclanWb6TQQQE9vzptbyny2Zct6dA7WA-40T9UfLehdRn2aiCI8sw5sveO_s2zD8n6uDystEv0kntA0xlT07hRElHawBjZA2t3mu8XiNVLYTNx_UrmUHy9hpPLO2tiafxQvBWp8IF9RjOHzxoSyCZHjOSmHvfUnMI5Iqukx_zWd0bOxP1CPbTq6iPj97Qwu-n8R2qgLkwKanVX" />
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                        Workshop Harian</div>
+                </div>
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Collection of colorful yarn balls in a basket"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC53rYz3LVsMHjbCTx8waLbQ95s0OB-xmKvs2j8iKTsTchnWtzbFK0ZCpAOV_87BwOiu1Q6blv5GjZRZdrtsg1EZ_oLe4Ydbj-Ae9kgob2Yr5rRBn3jFeBaSI1wLOD8OrkQO-XcREe2-08hJ2fJxacS7_ImbRNO8QyXbNpIzHes8I4RWtMln9lVqs34_h5T2b02t7dRdP9kaWWzHbVtAbAfjL5hxrW5UVUpgUhjrURBDSJERbVHVarFM4RhaZdlaT_PObLYMQjpkRUA" />
+                </div>
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Group of diverse people smiling and holding their knitted crafts"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkaW6I5MyBRODWBzjNtwxeDN5r1lU0nwxSdfKrm48e32pQ-UA-0GsbdHi2CbR0nKvTQ0zJVUBHUTHgXFjEhYfKhJhB1Yu_nbRkfxVsljN-FVlEPm1PQSyWIDf0a3hZAO18McaphNtO7ALYuDNAQI6usU60CRA4OxC1zQbcUf1x0Z6WVoTIr-IM4tgzrQfA020FKoIVdSXG-LnfSiUfilQjuWkM0Wijv62qjwjT8ihukPXL4Ow-gR3NxrjuK0y6k5yckNz9Fql2sk72" />
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                        Komunitas Kami</div>
+                </div>
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Close up of a finished beige knitted sweater folded neatly"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB35bEhK-WRiD5hkojcrTcdLp77B-9Wbp6dwVttPYOIOevjIiRylP94dqbvDK5fNfR64wf_fsNSYQaIeQVhPUf4P2iW81XWyQSwp-L5xzzTiQMkd451DOS4t3z_hMw0VkB6RecjLNbhtJAVuySXYrZdf_3bxyKd6LZ9KxWUj7L1_I5shg6HLMgNExYBtX7IZFp3XDTplXlEzTeJ8Hux_U7N9CotNBQaBePMhvdCxg4BsbAEXDMuhcd4Cbu9nBMo-XQkLIkooUQo2rZd" />
+                </div>
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Woman teaching a younger girl how to knit in a sunlit room"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8dKDurLPAM9eWJIApNXAja34LrMO2Nq-Z3UKtXZAXNjXJTHX9RheLVNL496__zMtha94wkFNS-Z8IXzE9in8lkvh3obrI8iDhpjvJpMYMxEnkOV-vqyPpNN5lNnesRyW3ptmViSoxrhyRA_pD9J8tUm4NUjivWZnnzJrJGNNkxzmscnaOhVhWcIV5VKSY1fVEGkuZKKFivYKdYpjPExgGMKve7DfV9Zwl-DMsCqf_nv9Rbyvx_SWijRtK0fxdE4ZS41oBOCWKLcQF" />
+                    <div
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                        Belajar Bersama</div>
+                </div>
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Detail shot of macrame art hanging on a wall"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS9IdQsnAX9G1gi3yEd_P-saKSh-4lFPGlbYTeqJLaCpNo8EtgGA3QHRpRccpCDiloHgN1M3dtw1nHvrdUtNOqFUfkZo2GT9qs5XyZV-Dsf_GfDCLISht_RyoYUTIkib4LO-lU-bvLN_AJDP58aL8-JfsGiFbkqirQ_6aOanVWypSNGiQEw3BYZmuWAXhrOtR-9eARH0OSRnddJWpR-Qcd9_cb5dkPMwsHrqQnyQp9WwOf52X2xD4n6RFl_ToN_n66aYnMTlKE1fqJ" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer / Conclusion CTA -->
+    <section class="relative py-20 px-6 bg-primary overflow-hidden">
+        <!-- Abstract pattern background -->
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: radial-gradient(#fff 2px, transparent 2px); background-size: 30px 30px;"></div>
+        <div class="relative max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
+            <h2 class="text-3xl md:text-5xl font-black text-white leading-tight">
+                Ingin merasakan pengalaman merajut bersama kami?
+            </h2>
+            <p class="text-white/90 text-lg md:text-xl font-medium max-w-2xl">
+                Mari berkunjung dan menjadi bagian dari cerita ini. Setiap simpul yang Anda buat mendukung kemandirian
+                teman-teman di Kampung Binong Jati.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full justify-center pt-4">
+                <button
+                    class="flex h-12 items-center justify-center rounded-lg bg-white px-8 text-base font-bold text-primary shadow-lg hover:bg-white/90 transition-all hover:-translate-y-1 min-w-[180px]">
+                    Hubungi Kami
+                </button>
+                <button
+                    class="flex h-12 items-center justify-center rounded-lg border-2 border-white px-8 text-base font-bold text-white hover:bg-white/10 transition-all min-w-[180px]">
+                    <svg class="w-5 h-5 mr-2 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                        </path>
+                    </svg>
+                    Instagram
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Simple Footer -->
+    <footer
+        class="bg-background-light dark:bg-background-dark py-8 text-center border-t border-[#f4ebe7] dark:border-white/5">
+        <p class="text-sm text-[#1c120d]/60 dark:text-white/60">
+            © 2024 Merajut Asa Kita. All rights reserved. <br />
+            Kampung Binong Jati, Bandung.
+        </p>
+    </footer>
+</body>
+
+</html>
