@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en">
 
 <head>
@@ -8,14 +7,10 @@
     <title>Merajut Asa Kita - Community Landing Page</title>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -26,12 +21,7 @@
                         "background-dark": "#221610",
                     },
                     fontFamily: {
-                        display: [
-                            "Helvetica Neue",
-                            "Helvetica",
-                            "Arial",
-                            "sans-serif"
-                        ]
+                        display: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"]
                     },
                     borderRadius: {
                         DEFAULT: "0.5rem",
@@ -44,7 +34,6 @@
         }
     </script>
     <style>
-        /* Custom scrollbar for better aesthetics */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -61,11 +50,160 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #c1c1c1;
         }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .8;
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav-scrolled {
+            backdrop-filter: blur(20px);
+        }
+
+        /* --- Floating Chatbot --- */
+        .chatbot-launcher {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            transition: var(--transition);
+        }
+
+        .chatbot-launcher:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 300px;
+            height: 400px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent-main);
+            border-radius: 15px;
+            display: none;
+            /* Hidden by default */
+            flex-direction: column;
+            z-index: 9999;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .chat-header {
+            background: var(--accent-main);
+            padding: 15px;
+            border-radius: 14px 14px 0 0;
+            font-weight: bold;
+            color: white;
+        }
     </style>
 </head>
 
+
+
 <body
     class="bg-background-light dark:bg-background-dark text-[#1c120d] dark:text-[#fcf9f8] font-display overflow-x-hidden">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/50 z-40 hidden" onclick="toggleMobileMenu()"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="mobile-menu fixed top-0 right-0 bottom-0 w-80 bg-white dark:bg-background-dark z-50 shadow-2xl">
+        <div class="flex flex-col h-full">
+            <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-white/10">
+                <h3 class="text-lg font-bold">Menu</h3>
+                <button onclick="toggleMobileMenu()" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <nav class="flex-1 p-6">
+                <a href="#about" onclick="toggleMobileMenu()"
+                    class="block py-4 text-lg font-bold hover:text-primary transition-colors border-b border-gray-100 dark:border-white/5">About</a>
+                <a href="#impact" onclick="toggleMobileMenu()"
+                    class="block py-4 text-lg font-bold hover:text-primary transition-colors border-b border-gray-100 dark:border-white/5">Impact</a>
+                <a href="#packages" onclick="toggleMobileMenu()"
+                    class="block py-4 text-lg font-bold hover:text-primary transition-colors border-b border-gray-100 dark:border-white/5">Packages</a>
+                <a href="#gallery" onclick="toggleMobileMenu()"
+                    class="block py-4 text-lg font-bold hover:text-primary transition-colors border-b border-gray-100 dark:border-white/5">Gallery</a>
+                <a href="#location" onclick="toggleMobileMenu()"
+                    class="block py-4 text-lg font-bold hover:text-primary transition-colors border-b border-gray-100 dark:border-white/5">Lokasi</a>
+            </nav>
+            <div class="p-6 border-t border-gray-200 dark:border-white/10">
+                <button onclick="openWhatsApp()"
+                    class="w-full flex items-center justify-center rounded-full h-12 px-6 bg-primary hover:bg-primary/90 transition-all text-white text-sm font-bold">
+                    Book Now
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <nav class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
         <div
@@ -89,6 +227,8 @@
                         href="#packages">Packages</a>
                     <a class="text-xs font-bold hover:text-primary transition-colors uppercase tracking-wider"
                         href="#gallery">Gallery</a>
+                    <a class="text-xs font-bold hover:text-primary transition-colors uppercase tracking-wider"
+                        href="#location">Lokasi</a>
                 </div>
 
                 <div class="flex items-center gap-4">
@@ -103,53 +243,65 @@
             </div>
         </div>
     </nav>
-    <!-- Hero Section -->
+
+    <!-- Hero Section with Video -->
     <section class="relative w-full pt-28 pb-10 px-4 md:px-8 lg:px-10">
         <div
             class="w-full max-w-[1400px] mx-auto rounded-[2rem] md:rounded-[3rem] h-[600px] md:h-[750px] relative overflow-hidden bg-gray-900 shadow-2xl">
-            <div class="absolute inset-0 bg-cover bg-center scale-105"
+            <!-- Video Background -->
+            <video id="heroVideo" class="absolute inset-0 w-full h-full object-cover scale-105" autoplay muted loop
+                playsinline>
+                <source src="hero.mp4" type="video/mp4">
+                <!-- Fallback image -->
+            </video>
+
+            <!-- Fallback Image (shown if video fails) -->
+            <div id="heroImageFallback" class="absolute inset-0 bg-cover bg-center scale-105 hidden"
                 style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRZW5jDnn1IJG1lOvkHxR37spR9pYYtaJTfTQzh9tgp241n711PhpobRg3u0giyOzGpYaPQxvRXN7JXcZZAZRgZcVXipjT7pskt2SfspADJlLEvZMQ40rdtl4nNpMHjh7fX1o5zq56_ErP6tx76_sgWAXjuOtFV7XZRIJWwlrI353As03B5JCS6SDrrQ4nX12kTHp9uVCTdAtizK8NpI0MxTQ9-7ItAkm9YzMGTZTCJ5dCZC5dEemES78Ohct-Mc3zCOUhQz6-w9oL');">
             </div>
 
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
 
             <div class="absolute inset-0 flex flex-col items-center justify-center px-6 text-center z-10">
-                <div class="max-w-[850px] flex flex-col items-center gap-6">
-                    <h1 class="text-white text-4xl md:text-7xl leading-[1.1] tracking-tight font-bold">
-                        Merajut Asa Kita
+                <div class="max-w-[850px] flex flex-col items-center gap-3">
+                    <h1
+                        class="text-white text-4xl md:text-7xl leading-[1.1] tracking-tight font-sans font-bold animate-fade-in-up">
+                        MERAKIT
                     </h1>
-                    <p class="text-lg md:text-xl text-white/90 max-w-2xl font-light">
+                    <p class="text-lg md:text-xl text-white/90 max-w-2xl font-light font-sans animate-fade-in-up"
+                        style="animation-delay: 0.2s;">
                         Komunitas yang merajut harapan, karya, dan kebersamaan di Kampung Binong Jati.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 mt-4">
-                        <button
+                    <div class="flex flex-col sm:flex-row gap-4 mt-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
                             class="flex h-14 items-center justify-center rounded-full bg-primary px-10 text-base font-bold text-white shadow-xl hover:bg-primary/90 hover:scale-105 transition-all duration-300">
                             Kenali Komunitas Kami
                         </button>
-                        <button
+                        <button onclick="playVideo()"
                             class="flex h-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/30 px-10 text-base font-bold text-white hover:bg-white/20 transition-all">
                             <span class="material-symbols-outlined mr-2">play_circle</span>
-                            Tonton Profil
+                            <span id="videoButtonText">Tonton Profil</span>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <button
+            <button id="soundButton" onclick="toggleSound()"
                 class="absolute bottom-10 right-10 z-20 flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 backdrop-blur-md hover:bg-white/20 transition-all border border-white/20 text-white text-xs font-bold tracking-widest uppercase">
-                <span class="material-symbols-outlined text-lg">volume_up</span>
-                <span class="hidden sm:inline">Play Sound</span>
+                <span id="soundIcon" class="material-symbols-outlined text-lg">volume_off</span>
+                <span class="hidden sm:inline" id="soundText">Unmute</span>
             </button>
         </div>
     </section>
+
     <!-- About Us Section -->
     <section class="py-16 md:py-24 px-6 md:px-10 lg:px-20 bg-background-light dark:bg-background-dark" id="about">
         <div class="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-6 scroll-animate">
                 <div class="flex flex-col gap-2">
                     <span class="text-primary font-bold tracking-wider text-sm uppercase">Tentang Kami</span>
                     <h2 class="text-3xl md:text-4xl font-black text-[#1c120d] dark:text-white leading-tight">
-                        Ruang Tumbuh &amp; Berkarya Bersama
+                        Ruang Tumbuh & Berkarya Bersama
                     </h2>
                 </div>
                 <div class="space-y-4 text-base md:text-lg text-[#1c120d]/80 dark:text-white/80 leading-relaxed">
@@ -170,71 +322,75 @@
                     </p>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-4 scroll-animate">
                 <div class="flex flex-col gap-4 mt-8">
-                    <div class="aspect-[3/4] rounded-xl overflow-hidden shadow-md">
-                        <img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                            data-alt="Women sitting in a circle knitting together in a bright room"
+                    <div
+                        class="aspect-[3/4] rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500">
+                        <img class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                            alt="Women sitting in a circle knitting together"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmteg3Kyoe1izuWQfcm2UbvZ-WqFNkSvGc18HDF4y8kbsL81jfwI7eAHS4wCRkWGTULrNmu11u31cXe6_sBG6HLZk3tECXsRUIccYKT30DqVXx2_unoxidxUl2WfXHLempUwUCbNbmz6Qc--j5KANbY4HvaA7Kq-KUo03sRAFSyWJl62n2un9gxXV4vJkJA3HMp8ERwWCrEux-jKiLeznsHnt3BkipSYoxIXIsL2lPiFI0BdKFEGc_zpelQAWIisF1hT09NYYNEzUT" />
                     </div>
                 </div>
                 <div class="flex flex-col gap-4">
-                    <div class="aspect-[4/3] rounded-xl overflow-hidden shadow-md">
-                        <img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                            data-alt="Close up of detailed colorful knitted fabric texture"
+                    <div
+                        class="aspect-[4/3] rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500">
+                        <img class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                            alt="Colorful knitted fabric texture"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuApfdnbelDRBau_0XtmtDZHRKl4xJf4m9Jw7dmLm0PCB2XTYltIhmer8iB16w1TwhI3fc7R8eCPgzVmiZlbS5aS01p7G9cCeyrBM2wOHSOsiSrPH82dII8wgKhh7aHHLCG5spnE3BmxVMQrZD0hhmd6Ii3HhaqUic3jCTMxnEGQbjThtr92QHvkfZ_rkaozCWUQ5qpTVsMTU4ltMmE1Vbvkb5iuatp8DS5iP1X2_fKfZzkOypNQsS7SbslL863TywGNKwqUSPm6DZCA" />
                     </div>
-                    <div class="aspect-[3/4] rounded-xl overflow-hidden shadow-md">
-                        <img class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                            data-alt="A person teaching another person how to use knitting needles"
+                    <div
+                        class="aspect-[3/4] rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500">
+                        <img class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                            alt="Teaching knitting techniques"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuByNHM-XJGOrlYBLav4MSwnNG65dmNa8BxWKl1vwv10Hq_bnvgpVvU32qfYPia5sVng6r0jK3RHfvAbOM5fb2KAia0K3x_bONpnEDTnyZE-ay4wvpYhiawCO6Dnx8OOChzV3ZY2iWI92OdJV8GqdszlqTv2mPe0obKZn8Oyn7aQgh4wMUxl2bK_Swu7l1bZ5T2Lp-480q7Ype6pr-Z0mhx6zcjl-lWRec0aFHWz8BJkVzxlJGPSZNDJqzBqasuO9cAreIwVcB4Ksmq0" />
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Social Impact Section -->
     <section class="py-12 bg-white dark:bg-[#1a100c] border-y border-[#f4ebe7] dark:border-white/5" id="impact">
         <div class="max-w-[1280px] mx-auto px-6 md:px-10">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 scroll-animate">
                 <h2 class="text-2xl md:text-3xl font-bold text-[#1c120d] dark:text-white">Dampak Sosial Kami</h2>
                 <p class="text-[#1c120d]/60 dark:text-white/60 mt-2">Membangun perubahan nyata dari langkah kecil.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Stat Card 1 -->
                 <div
-                    class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-shadow border border-transparent hover:border-primary/20">
-                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                    class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-all duration-300 border border-transparent hover:border-primary/20 hover:-translate-y-2 scroll-animate">
+                    <div
+                        class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 animate-float">
                         <span class="material-symbols-outlined text-3xl">diversity_3</span>
                     </div>
                     <h3 class="text-3xl font-black text-[#1c120d] dark:text-white mb-2">Inklusif</h3>
-                    <p class="text-sm font-medium text-[#1c120d]/70 dark:text-white/70">Perempuan &amp; difabel terlibat
+                    <p class="text-sm font-medium text-[#1c120d]/70 dark:text-white/70">Perempuan & difabel terlibat
                         aktif</p>
                 </div>
-                <!-- Stat Card 2 -->
-                <div
-                    class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-shadow border border-transparent hover:border-primary/20">
-                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-all duration-300 border border-transparent hover:border-primary/20 hover:-translate-y-2 scroll-animate"
+                    style="animation-delay: 0.1s;">
+                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 animate-float"
+                        style="animation-delay: 0.5s;">
                         <span class="material-symbols-outlined text-3xl">checkroom</span>
                     </div>
                     <h3 class="text-3xl font-black text-[#1c120d] dark:text-white mb-2">100%</h3>
-                    <p class="text-sm font-medium text-[#1c120d]/70 dark:text-white/70">Produk rajut handmade &amp;
-                        lokal</p>
+                    <p class="text-sm font-medium text-[#1c120d]/70 dark:text-white/70">Produk rajut handmade & lokal
+                    </p>
                 </div>
-                <!-- Stat Card 3 -->
-                <div
-                    class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-shadow border border-transparent hover:border-primary/20">
-                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-all duration-300 border border-transparent hover:border-primary/20 hover:-translate-y-2 scroll-animate"
+                    style="animation-delay: 0.2s;">
+                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 animate-float"
+                        style="animation-delay: 1s;">
                         <span class="material-symbols-outlined text-3xl">volunteer_activism</span>
                     </div>
                     <h3 class="text-3xl font-black text-[#1c120d] dark:text-white mb-2">Komunitas</h3>
-                    <p class="text-sm font-medium text-[#1c120d]/70 dark:text-white/70">Ruang belajar aman &amp;
-                        suportif</p>
+                    <p class="text-sm font-medium text-[#1c120d]/70 dark:text-white/70">Ruang belajar aman & suportif
+                    </p>
                 </div>
-                <!-- Stat Card 4 -->
-                <div
-                    class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-shadow border border-transparent hover:border-primary/20">
-                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+                <div class="flex flex-col items-center text-center p-6 rounded-2xl bg-background-light dark:bg-background-dark hover:shadow-lg transition-all duration-300 border border-transparent hover:border-primary/20 hover:-translate-y-2 scroll-animate"
+                    style="animation-delay: 0.3s;">
+                    <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4 animate-float"
+                        style="animation-delay: 1.5s;">
                         <span class="material-symbols-outlined text-3xl">potted_plant</span>
                     </div>
                     <h3 class="text-3xl font-black text-[#1c120d] dark:text-white mb-2">Lokal</h3>
@@ -244,10 +400,11 @@
             </div>
         </div>
     </section>
+
     <!-- Tour Packages Section -->
     <section class="py-16 md:py-24 px-6 bg-background-light dark:bg-background-dark" id="packages">
         <div class="max-w-[1280px] mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 scroll-animate">
                 <div class="max-w-2xl">
                     <h2 class="text-3xl md:text-4xl font-black text-[#1c120d] dark:text-white mb-4">Creative Tour
                         Packages</h2>
@@ -260,7 +417,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Package 1 -->
                 <div
-                    class="flex flex-col rounded-xl border border-[#e8d7ce] dark:border-white/10 bg-white dark:bg-[#1f1612] p-6 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
+                    class="flex flex-col rounded-xl border border-[#e8d7ce] dark:border-white/10 bg-white dark:bg-[#1f1612] p-6 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 scroll-animate">
                     <div class="mb-4">
                         <span
                             class="inline-block px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wide">Pemula</span>
@@ -280,50 +437,6 @@
                         <div class="space-y-3">
                             <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
                                 <span class="material-symbols-outlined text-primary text-xl">schedule</span>
-                                <span>Durasi 3 Jam</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
-                                <span class="material-symbols-outlined text-primary text-xl">inventory_2</span>
-                                <span>Bahan &amp; Alat Disediakan</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
-                                <span class="material-symbols-outlined text-primary text-xl">group</span>
-                                <span>Min. 5 Peserta</span>
-                            </div>
-                        </div>
-                        <button
-                            class="flex w-full items-center justify-center rounded-lg h-12 px-4 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold transition-colors gap-2">
-                            <span class="material-symbols-outlined">chat</span>
-                            Reservasi via WhatsApp
-                        </button>
-                    </div>
-                </div>
-                <!-- Package 2 -->
-                <div
-                    class="flex flex-col rounded-xl border-2 border-primary/20 bg-white dark:bg-[#1f1612] p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 relative">
-                    <div
-                        class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                        Terpopuler
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <span
-                            class="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wide">Lanjutan</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-[#1c120d] dark:text-white mb-2">Intermediate Crafting</h3>
-                    <p class="text-[#1c120d]/60 dark:text-white/60 text-sm mb-6 h-10">
-                        Eksplorasi teknik rajut variatif untuk membuat dompet atau tas kecil.
-                    </p>
-                    <div class="mt-auto flex flex-col gap-6">
-                        <div>
-                            <p class="text-sm text-[#1c120d]/60 dark:text-white/60 mb-1">Harga per orang</p>
-                            <p class="flex items-baseline gap-1 text-primary">
-                                <span class="text-3xl font-black tracking-tight">Rp250.000</span>
-                                <span class="text-sm font-bold text-[#1c120d] dark:text-white">/ pax</span>
-                            </p>
-                        </div>
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
-                                <span class="material-symbols-outlined text-primary text-xl">schedule</span>
                                 <span>Durasi 5 Jam</span>
                             </div>
                             <div class="flex items-center gap-3 text-sm text-[#1c120d] dark:text-white">
@@ -335,16 +448,17 @@
                                 <span>Snack Termasuk</span>
                             </div>
                         </div>
-                        <button
-                            class="flex w-full items-center justify-center rounded-lg h-12 px-4 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold transition-colors gap-2">
+                        <button onclick="openWhatsApp('Intermediate Crafting')"
+                            class="flex w-full items-center justify-center rounded-lg h-12 px-4 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold transition-all hover:scale-105 active:scale-95 gap-2">
                             <span class="material-symbols-outlined">chat</span>
                             Reservasi via WhatsApp
                         </button>
                     </div>
                 </div>
+
                 <!-- Package 3 -->
-                <div
-                    class="flex flex-col rounded-xl border border-[#e8d7ce] dark:border-white/10 bg-white dark:bg-[#1f1612] p-6 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1">
+                <div class="flex flex-col rounded-xl border border-[#e8d7ce] dark:border-white/10 bg-white dark:bg-[#1f1612] p-6 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 scroll-animate"
+                    style="animation-delay: 0.2s;">
                     <div class="mb-4">
                         <span
                             class="inline-block px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-wide">Wisata
@@ -376,8 +490,8 @@
                                 <span>Tour Kampung Binong</span>
                             </div>
                         </div>
-                        <button
-                            class="flex w-full items-center justify-center rounded-lg h-12 px-4 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold transition-colors gap-2">
+                        <button onclick="openWhatsApp('Full Community Tour')"
+                            class="flex w-full items-center justify-center rounded-lg h-12 px-4 bg-[#25D366] hover:bg-[#128C7E] text-white text-sm font-bold transition-all hover:scale-105 active:scale-95 gap-2">
                             <span class="material-symbols-outlined">chat</span>
                             Reservasi via WhatsApp
                         </button>
@@ -386,61 +500,184 @@
             </div>
         </div>
     </section>
+
     <!-- Gallery Section -->
     <section
         class="py-16 px-6 bg-background-light dark:bg-background-dark border-t border-[#f4ebe7] dark:border-white/5"
         id="gallery">
         <div class="max-w-[1280px] mx-auto">
-            <h2 class="text-3xl font-black text-[#1c120d] dark:text-white mb-8 text-center">Galeri Kegiatan</h2>
+            <h2 class="text-3xl font-black text-[#1c120d] dark:text-white mb-8 text-center scroll-animate">Galeri
+                Kegiatan</h2>
             <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
-                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-alt="Hands holding knitting needles working on a brown scarf"
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative cursor-pointer scroll-animate">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                        alt="Hands knitting"
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_0y6Gt_B0VQdnPUcVCELuleAAgR1J9W2uP4h_gnJFVWDE8IiWNXnAxAFx8OU3ImFclanWb6TQQQE9vzptbyny2Zct6dA7WA-40T9UfLehdRn2aiCI8sw5sveO_s2zD8n6uDystEv0kntA0xlT07hRElHawBjZA2t3mu8XiNVLYTNx_UrmUHy9hpPLO2tiafxQvBWp8IF9RjOHzxoSyCZHjOSmHvfUnMI5Iqukx_zWd0bOxP1CPbTq6iPj97Qwu-n8R2qgLkwKanVX" />
                     <div
-                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center text-white font-bold">
                         Workshop Harian</div>
                 </div>
-                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
-                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-alt="Collection of colorful yarn balls in a basket"
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative cursor-pointer scroll-animate"
+                    style="animation-delay: 0.1s;">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                        alt="Colorful yarn"
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuC53rYz3LVsMHjbCTx8waLbQ95s0OB-xmKvs2j8iKTsTchnWtzbFK0ZCpAOV_87BwOiu1Q6blv5GjZRZdrtsg1EZ_oLe4Ydbj-Ae9kgob2Yr5rRBn3jFeBaSI1wLOD8OrkQO-XcREe2-08hJ2fJxacS7_ImbRNO8QyXbNpIzHes8I4RWtMln9lVqs34_h5T2b02t7dRdP9kaWWzHbVtAbAfjL5hxrW5UVUpgUhjrURBDSJERbVHVarFM4RhaZdlaT_PObLYMQjpkRUA" />
                 </div>
-                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
-                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-alt="Group of diverse people smiling and holding their knitted crafts"
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative cursor-pointer scroll-animate"
+                    style="animation-delay: 0.2s;">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                        alt="Community group"
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkaW6I5MyBRODWBzjNtwxeDN5r1lU0nwxSdfKrm48e32pQ-UA-0GsbdHi2CbR0nKvTQ0zJVUBHUTHgXFjEhYfKhJhB1Yu_nbRkfxVsljN-FVlEPm1PQSyWIDf0a3hZAO18McaphNtO7ALYuDNAQI6usU60CRA4OxC1zQbcUf1x0Z6WVoTIr-IM4tgzrQfA020FKoIVdSXG-LnfSiUfilQjuWkM0Wijv62qjwjT8ihukPXL4Ow-gR3NxrjuK0y6k5yckNz9Fql2sk72" />
                     <div
-                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center text-white font-bold">
                         Komunitas Kami</div>
                 </div>
-                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
-                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-alt="Close up of a finished beige knitted sweater folded neatly"
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative cursor-pointer scroll-animate"
+                    style="animation-delay: 0.3s;">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                        alt="Finished product"
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuB35bEhK-WRiD5hkojcrTcdLp77B-9Wbp6dwVttPYOIOevjIiRylP94dqbvDK5fNfR64wf_fsNSYQaIeQVhPUf4P2iW81XWyQSwp-L5xzzTiQMkd451DOS4t3z_hMw0VkB6RecjLNbhtJAVuySXYrZdf_3bxyKd6LZ9KxWUj7L1_I5shg6HLMgNExYBtX7IZFp3XDTplXlEzTeJ8Hux_U7N9CotNBQaBePMhvdCxg4BsbAEXDMuhcd4Cbu9nBMo-XQkLIkooUQo2rZd" />
                 </div>
-                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
-                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-alt="Woman teaching a younger girl how to knit in a sunlit room"
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative cursor-pointer scroll-animate"
+                    style="animation-delay: 0.4s;">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                        alt="Teaching session"
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8dKDurLPAM9eWJIApNXAja34LrMO2Nq-Z3UKtXZAXNjXJTHX9RheLVNL496__zMtha94wkFNS-Z8IXzE9in8lkvh3obrI8iDhpjvJpMYMxEnkOV-vqyPpNN5lNnesRyW3ptmViSoxrhyRA_pD9J8tUm4NUjivWZnnzJrJGNNkxzmscnaOhVhWcIV5VKSY1fVEGkuZKKFivYKdYpjPExgGMKve7DfV9Zwl-DMsCqf_nv9Rbyvx_SWijRtK0fxdE4ZS41oBOCWKLcQF" />
                     <div
-                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center text-white font-bold">
                         Belajar Bersama</div>
                 </div>
-                <div class="break-inside-avoid rounded-xl overflow-hidden group relative">
-                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-alt="Detail shot of macrame art hanging on a wall"
+                <div class="break-inside-avoid rounded-xl overflow-hidden group relative cursor-pointer scroll-animate"
+                    style="animation-delay: 0.5s;">
+                    <img class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                        alt="Macrame art"
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS9IdQsnAX9G1gi3yEd_P-saKSh-4lFPGlbYTeqJLaCpNo8EtgGA3QHRpRccpCDiloHgN1M3dtw1nHvrdUtNOqFUfkZo2GT9qs5XyZV-Dsf_GfDCLISht_RyoYUTIkib4LO-lU-bvLN_AJDP58aL8-JfsGiFbkqirQ_6aOanVWypSNGiQEw3BYZmuWAXhrOtR-9eARH0OSRnddJWpR-Qcd9_cb5dkPMwsHrqQnyQp9WwOf52X2xD4n6RFl_ToN_n66aYnMTlKE1fqJ" />
                 </div>
             </div>
         </div>
     </section>
-    <!-- Footer / Conclusion CTA -->
+
+    <!-- Map & Location Section -->
+    <section
+        class="py-16 md:py-24 px-6 bg-background-light dark:bg-background-dark border-t border-[#f4ebe7] dark:border-white/5"
+        id="location">
+        <div class="max-w-[1280px] mx-auto">
+            <div class="text-center mb-12 scroll-animate">
+                <span class="text-primary font-bold tracking-wider text-sm uppercase">Temukan Kami</span>
+                <h2 class="text-3xl md:text-4xl font-black text-[#1c120d] dark:text-white mt-2">Lokasi Kampung Rajut
+                </h2>
+                <p class="text-[#1c120d]/60 dark:text-white/60 mt-4 max-w-2xl mx-auto">Kunjungi kami di Kampung Binong
+                    Jati dan rasakan pengalaman merajut yang autentik bersama komunitas lokal.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch scroll-animate">
+                <!-- Map -->
+                <div class="rounded-2xl overflow-hidden shadow-lg h-96 lg:h-full min-h-[400px]">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.8447329889863!2d107.0076268!3d-6.9147222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68a3b8c8c8c8c9%3A0x1c1c1c1c1c1c1c1c!2sKampung%20Binong%20Jati%2C%20Bandung!5e0!3m2!1sid!2sid!4v1234567890"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Location Info -->
+                <div class="flex flex-col gap-6">
+                    <div
+                        class="bg-white dark:bg-[#1f1612] rounded-2xl p-8 border border-[#e8d7ce] dark:border-white/10 shadow-sm">
+                        <h3 class="text-2xl font-bold text-[#1c120d] dark:text-white mb-6">Informasi Lokasi</h3>
+
+                        <div class="space-y-6">
+                            <!-- Address -->
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10">
+                                        <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4
+                                        class="text-sm font-bold text-[#1c120d] dark:text-white uppercase tracking-wide">
+                                        Alamat</h4>
+                                    <p class="text-[#1c120d]/70 dark:text-white/70 mt-1">
+                                        Kampung Binong Jati<br />
+                                        Cibeunying Kidul, Bandung<br />
+                                        Jawa Barat, Indonesia 40623
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10">
+                                        <span class="material-symbols-outlined text-primary text-2xl">phone</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4
+                                        class="text-sm font-bold text-[#1c120d] dark:text-white uppercase tracking-wide">
+                                        Hubungi Kami</h4>
+                                    <a href="https://wa.me/62"
+                                        class="text-primary hover:text-primary/80 transition-colors font-semibold mt-1">
+                                        +62 (WhatsApp)
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10">
+                                        <span class="material-symbols-outlined text-primary text-2xl">mail</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4
+                                        class="text-sm font-bold text-[#1c120d] dark:text-white uppercase tracking-wide">
+                                        Email</h4>
+                                    <a href="mailto:info@merajutasakita.id"
+                                        class="text-primary hover:text-primary/80 transition-colors font-semibold mt-1">
+                                        info@merajutasakita.id
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Hours -->
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10">
+                                        <span class="material-symbols-outlined text-primary text-2xl">schedule</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4
+                                        class="text-sm font-bold text-[#1c120d] dark:text-white uppercase tracking-wide">
+                                        Jam Operasional</h4>
+                                    <p class="text-[#1c120d]/70 dark:text-white/70 mt-1">
+                                        Senin - Jumat: 09:00 - 17:00<br />
+                                        Sabtu: 10:00 - 15:00<br />
+                                        Minggu: Tutup (Khusus Grup)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="openWhatsApp('Saya ingin berkunjung')"
+                            class="w-full flex items-center justify-center rounded-lg h-12 px-4 bg-primary hover:bg-primary/90 text-white text-sm font-bold transition-all hover:scale-105 active:scale-95 gap-2 mt-8">
+                            <span class="material-symbols-outlined">chat</span>
+                            Kunjungi Kami
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
     <section class="relative py-20 px-6 bg-primary overflow-hidden">
-        <!-- Abstract pattern background -->
         <div class="absolute inset-0 opacity-10"
             style="background-image: radial-gradient(#fff 2px, transparent 2px); background-size: 30px 30px;"></div>
-        <div class="relative max-w-4xl mx-auto text-center flex flex-col items-center gap-8">
+        <div class="relative max-w-4xl mx-auto text-center flex flex-col items-center gap-8 scroll-animate">
             <h2 class="text-3xl md:text-5xl font-black text-white leading-tight">
                 Ingin merasakan pengalaman merajut bersama kami?
             </h2>
@@ -449,12 +686,12 @@
                 teman-teman di Kampung Binong Jati.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 w-full justify-center pt-4">
-                <button
-                    class="flex h-12 items-center justify-center rounded-lg bg-white px-8 text-base font-bold text-primary shadow-lg hover:bg-white/90 transition-all hover:-translate-y-1 min-w-[180px]">
+                <button onclick="openWhatsApp()"
+                    class="flex h-12 items-center justify-center rounded-lg bg-white px-8 text-base font-bold text-primary shadow-lg hover:bg-white/90 transition-all hover:-translate-y-1 hover:scale-105 min-w-[180px]">
                     Hubungi Kami
                 </button>
-                <button
-                    class="flex h-12 items-center justify-center rounded-lg border-2 border-white px-8 text-base font-bold text-white hover:bg-white/10 transition-all min-w-[180px]">
+                <button onclick="window.open('https://instagram.com', '_blank')"
+                    class="flex h-12 items-center justify-center rounded-lg border-2 border-white px-8 text-base font-bold text-white hover:bg-white/10 transition-all hover:scale-105 min-w-[180px]">
                     <svg class="w-5 h-5 mr-2 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
@@ -465,7 +702,8 @@
             </div>
         </div>
     </section>
-    <!-- Simple Footer -->
+
+    <!-- Footer -->
     <footer
         class="bg-background-light dark:bg-background-dark py-8 text-center border-t border-[#f4ebe7] dark:border-white/5">
         <p class="text-sm text-[#1c120d]/60 dark:text-white/60">
@@ -473,6 +711,188 @@
             Kampung Binong Jati, Bandung.
         </p>
     </footer>
-</body>
 
-</html>
+    <div class="chatbot-launcher" onclick="toggleChat()">
+        <i class="fa-solid fa-comments"></i>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">Harri's Assistant</div>
+        <div style="flex: 1; padding: 15px; font-size: 0.9rem; overflow-y: auto;">
+            <div style="background: #30363d; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                Halo! Ada yang bisa saya bantu terkait project atau katalog rajut saya?
+            </div>
+        </div>
+        <div style="padding: 10px; border-top: 1px solid #30363d;">
+            <input type="text" placeholder="Ketik pesan..."
+                style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #30363d; background: var(--bg-primary); color: white;">
+        </div>
+    </div>
+
+    <script>
+
+        function toggleChat() {
+            const chat = document.getElementById('chatWindow');
+            if (chat.style.display === 'flex') {
+                chat.style.display = 'none';
+            } else {
+                chat.style.display = 'flex';
+            }
+        }
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const isDark = html.classList.contains('dark');
+
+            if (isDark) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+
+            updateDarkModeIcon();
+        }
+
+        function updateDarkModeIcon() {
+            const isDark = document.documentElement.classList.contains('dark');
+            document.querySelectorAll('.dark-mode-icon').forEach(el => {
+                el.classList.toggle('hidden', isDark);
+            });
+            document.querySelectorAll('.light-mode-icon').forEach(el => {
+                el.classList.toggle('hidden', !isDark);
+            });
+        }
+
+        // Initialize theme
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+        updateDarkModeIcon();
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const isActive = menu.classList.contains('active');
+
+            if (isActive) {
+                menu.classList.remove('active');
+                overlay.classList.add('hidden');
+            } else {
+                menu.classList.add('active');
+                overlay.classList.remove('hidden');
+            }
+        }
+
+        // Video Controls
+        const video = document.getElementById('heroVideo');
+        const videoFallback = document.getElementById('heroImageFallback');
+        let isMuted = true;
+
+        // Handle video load error
+        video.addEventListener('error', function () {
+            video.style.display = 'none';
+            videoFallback.classList.remove('hidden');
+        });
+
+        function toggleSound() {
+            const soundIcon = document.getElementById('soundIcon');
+            const soundText = document.getElementById('soundText');
+
+            isMuted = !isMuted;
+            video.muted = isMuted;
+
+            if (isMuted) {
+                soundIcon.textContent = 'volume_off';
+                soundText.textContent = 'Unmute';
+            } else {
+                soundIcon.textContent = 'volume_up';
+                soundText.textContent = 'Mute';
+            }
+        }
+
+        function playVideo() {
+            if (video.paused) {
+                video.play();
+                document.getElementById('videoButtonText').textContent = 'Pause';
+            } else {
+                video.pause();
+                document.getElementById('videoButtonText').textContent = 'Play';
+            }
+        }
+
+        // WhatsApp Integration
+        function openWhatsApp(packageName = '') {
+            const phone = '6281234567890'; // Ganti dengan nomor WhatsApp yang benar
+            let message = 'Halo! Saya tertarik untuk bergabung dengan Merajut Asa Kita.';
+
+            if (packageName) {
+                message = `Halo! Saya tertarik dengan paket "${packageName}". Bisa info lebih lanjut?`;
+            }
+
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Observe all scroll-animate elements
+            document.querySelectorAll('.scroll-animate').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                observer.observe(el);
+            });
+
+            // Navbar scroll effect
+            let lastScroll = 0;
+            const navbar = document.getElementById('navbar');
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+
+                if (currentScroll > 100) {
+                    navbar.classList.add('nav-scrolled');
+                } else {
+                    navbar.classList.remove('nav-scrolled');
+                }
+
+                lastScroll = currentScroll;
+            });
+
+            // Start video
+            video.play().catch(e => {
+                console.log('Auto-play prevented:', e);
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
