@@ -3,16 +3,14 @@ import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
-import ImpactSection from './components/ImpactSection';
 import DocumentarySection from './components/DocumentarySection';
-import DigitalGallerySection from './components/DigitalGallerySection';
 import PackagesSection from './components/PackagesSection';
 import ProductCatalogSection from './components/ProductCatalogSection';
 import GallerySection from './components/GallerySection';
 import LocationSection from './components/LocationSection';
 import FooterCTA from './components/FooterCTA';
 import Footer from './components/Footer';
-import MerakitAIChatbot from './components/MerakitAIChatbot';
+import MerakitChatbot from './components/MerakitAIChatbot';
 import './index.css';
 
 function App() {
@@ -42,7 +40,7 @@ function App() {
                     },
                 }}
             />
-            <MerakitAIChatbot />
+            <MerakitChatbot />
             <Navbar
                 mobileMenuOpen={mobileMenuOpen}
                 toggleMobileMenu={toggleMobileMenu}

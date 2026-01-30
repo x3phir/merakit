@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+
 
 const ProductCard = ({ id, image, title, description, price, sales, rating, shopeeUrl, delay = 0, onAddToCart, onProductClick }) => {
     const handleBuyOnShopee = (e) => {

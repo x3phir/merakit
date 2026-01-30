@@ -9,9 +9,6 @@ const ProductCatalogSection = ({ openWhatsApp }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // URL Toko Shopee MERAKIT
-    const SHOPEE_STORE_URL = 'https://shopee.co.id/merajutasakita';
-
     // Data produk dari Shopee (update link sesuai produk asli)
     const products = [
         // ===== PAKAIAN PRIA =====

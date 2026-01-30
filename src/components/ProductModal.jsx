@@ -28,21 +28,6 @@ const ProductModal = ({ product, isOpen, onClose, onAddToCart }) => {
         }
     };
 
-    const getCategoryLabel = (category) => {
-        switch (category) {
-            case 'pakaian-pria':
-                return { label: 'Pakaian Pria', icon: '👔' };
-            case 'pakaian-wanita':
-                return { label: 'Pakaian Wanita', icon: '👗' };
-            case 'tas-wanita':
-                return { label: 'Tas Wanita', icon: '👜' };
-            default:
-                return { label: 'Produk', icon: '🛍️' };
-        }
-    };
-
-    const categoryInfo = getCategoryLabel(product.category);
-
     return (
         <AnimatePresence>
             {isOpen && (

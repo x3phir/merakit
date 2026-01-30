@@ -1,5 +1,5 @@
 import React from 'react';
-import IMAGES from './../constants/index';
+
 
 const GallerySection = () => {
     const galleryItems = [
