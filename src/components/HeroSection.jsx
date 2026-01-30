@@ -11,12 +11,7 @@ const HeroSection = ({ openWhatsApp }) => {
         }
     };
 
-    const playVideo = () => {
-        const videoElement = document.getElementById('heroVideo');
-        if (videoElement) {
-            videoElement.play();
-        }
-    };
+
 
     return (
         <section className="relative w-full pt-28 pb-10 px-4 md:px-8 lg:px-10">
@@ -65,7 +60,7 @@ const HeroSection = ({ openWhatsApp }) => {
                                 Kenali Komunitas Kami
                             </button>
                             <button
-                                onClick={playVideo}
+                                onClick={() => document.getElementById('documentary')?.scrollIntoView({ behavior: 'smooth' })}
                                 className="flex h-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/30 px-10 text-base font-bold text-white hover:bg-white/20 transition-all"
                             >
                                 <span className="material-symbols-outlined mr-2">play_circle</span>
