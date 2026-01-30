@@ -13,6 +13,8 @@ const HeroSection = ({ openWhatsApp }) => {
 
 
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <section className="relative w-full pt-28 pb-10 px-4 md:px-8 lg:px-10">
             <div className="w-full max-w-[1400px] mx-auto rounded-[2rem] md:rounded-[3rem] h-[600px] md:h-[750px] relative overflow-hidden bg-gray-900 shadow-2xl">
@@ -60,7 +62,7 @@ const HeroSection = ({ openWhatsApp }) => {
                                 Kenali Komunitas Kami
                             </button>
                             <button
-                                onClick={() => document.getElementById('documentary')?.scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => setIsModalOpen(true)}
                                 className="flex h-14 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/30 px-10 text-base font-bold text-white hover:bg-white/20 transition-all"
                             >
                                 <span className="material-symbols-outlined mr-2">play_circle</span>
@@ -81,6 +83,28 @@ const HeroSection = ({ openWhatsApp }) => {
                     <span className="hidden sm:inline">{isMuted ? 'Unmute' : 'Mute'}</span>
                 </button>
             </div>
+
+            {/* Video Modal */}
+            {isModalOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}>
+                    <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl bg-black" onClick={e => e.stopPropagation()}>
+                        <button
+                            onClick={() => setIsModalOpen(false)}
+                            className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-white/20 rounded-full text-white transition-all transform hover:scale-110"
+                        >
+                            <span className="material-symbols-outlined">close</span>
+                        </button>
+                        <video
+                            className="w-full h-auto max-h-[80vh]"
+                            controls
+                            autoPlay
+                        >
+                            <source src="/hero.mp4" type="video/mp4" />
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };
