@@ -53,10 +53,20 @@ const Navbar = ({ mobileMenuOpen, toggleMobileMenu, openWhatsApp }) => {
                 <div className="w-full max-w-[1280px] rounded-full border border-white/20 bg-white/70 backdrop-blur-md dark:bg-background-dark/70 dark:border-white/10 shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-between px-6 py-3 lg:px-8">
                         <div className="flex items-center gap-3">
-                            <div className="flex items-center justify-center size-9 rounded-full bg-primary text-white">
-                                <span className="material-symbols-outlined text-xl">gesture</span>
+                            <div className="flex items-center gap-2">
+                                <img
+                                    src="/images/logo-merakit.png"
+                                    alt="Logo Merakit"
+                                    className="h-10 w-auto object-contain"
+                                />
+                                <div className="h-6 w-[1px] bg-gray-300 dark:bg-white/20"></div>
+                                <img
+                                    src="/images/logo-innovillage.png"
+                                    alt="Logo Innovillage"
+                                    className="h-8 w-auto object-contain"
+                                />
                             </div>
-                            <h2 className="text-base font-bold leading-tight tracking-tight text-[#1c120d] dark:text-white">
+                            <h2 className="text-base font-bold leading-tight tracking-tight text-[#1c120d] dark:text-white hidden sm:block">
                                 Merajut Asa Kita
                             </h2>
                         </div>
