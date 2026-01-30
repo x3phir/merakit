@@ -10,19 +10,19 @@ const LocationSection = ({ openWhatsApp }) => {
         {
             icon: 'phone',
             title: 'Hubungi Kami',
-            content: '+62 (WhatsApp)',
-            link: 'https://wa.me/62'
+            content: '+62 822 1914 5422',
+            link: 'https://wa.me/6282219145422'
         },
         {
             icon: 'mail',
             title: 'Email',
-            content: 'info@merajutasakita.id',
-            link: 'mailto:info@merajutasakita.id'
+            content: 'MERAJUTASA23@gmail.com',
+            link: 'mailto:MERAJUTASA23@gmail.com'
         },
         {
             icon: 'schedule',
             title: 'Jam Operasional',
-            content: 'Senin - Jumat: 09:00 - 17:00\nSabtu: 10:00 - 15:00\nMinggu: Tutup (Khusus Grup)'
+            content: 'Senin - Sabtu: 09:00 - 17:00\nMinggu: Tutup'
         }
     ];
 

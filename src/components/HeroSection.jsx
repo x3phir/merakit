@@ -30,7 +30,7 @@ const HeroSection = ({ openWhatsApp }) => {
                     loop
                     playsInline
                 >
-                    <source src="hero.mp4" type="video/mp4" />
+                    <source src="/hero.mp4" type="video/mp4" />
                 </video>
 
                 {/* Fallback Image */}

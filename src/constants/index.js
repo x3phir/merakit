@@ -7,11 +7,11 @@ export const SITE_DESCRIPTION = 'Komunitas yang merajut harapan, karya, dan kebe
 
 // Contact Information
 export const CONTACT_INFO = {
-    phone: '+62', // Update dengan nomor asli
+    phone: '+62 822 1914 5422',
     email: 'info@merajutasakita.id',
     address: 'Kampung Binong Jati, Cibeunying Kidul, Bandung, Jawa Barat 40623',
-    instagram: 'https://instagram.com', // Update dengan Instagram asli
-    whatsapp: 'https://wa.me/62',
+    instagram: 'https://www.instagram.com/merajutasakita/',
+    whatsapp: 'https://wa.me/62082219145422',
 };
 
 // Operating Hours
@@ -30,6 +30,7 @@ export const NAV_ITEMS = [
     { label: 'About', href: '#about' },
     { label: 'Impact', href: '#impact' },
     { label: 'Packages', href: '#packages' },
+    { label: 'Katalog', href: '#catalog' },
     { label: 'Gallery', href: '#gallery' },
     { label: 'Lokasi', href: '#location' },
 ];
@@ -141,4 +142,65 @@ export const COLORS = {
     'background-dark': '#221610',
     text: '#1c120d',
     'text-light': '#fcf9f8',
+};
+
+// Chatbot Knowledge Base
+export const CHATBOT_KNOWLEDGE = {
+    about: `MERAKIT (Merajut Asa Kita) adalah komunitas pemberdayaan masyarakat di Kampung Wisata Rajut Binong, Bandung, yang fokus pada pembinaan sobat istimewa (disabilitas), pengembangan kreativitas rajut, dan wisata edukatif berbasis komunitas.`,
+
+    vision: `Memberdayakan masyarakat agar hidup setara melalui keterampilan rajut, kreativitas, dan kolaborasi sosial.`,
+
+    location: {
+        address: 'Jl. Binong Jati No.124, Bandung, Jawa Barat',
+        near: 'Alun-Alun Bandung & Kiara Arta Park',
+    },
+
+    activities: [
+        'Wisata edukasi rajut',
+        'Workshop & kelas merajut',
+        'Shopping village rajut',
+        'Pameran & event',
+        'Konten media sosial & marketplace',
+    ],
+
+    benefits: [
+        'Meditasi & terapi',
+        'Mengurangi stres dan kecemasan',
+        'Melatih daya ingat dan fokus',
+        'Baik untuk kesehatan sendi',
+        'Meningkatkan rasa percaya diri',
+        'Mendukung kesehatan mental',
+    ],
+
+    braceletTutorial: [
+        'Membuat simpul awal (slip knot)',
+        'Membuat rantai dasar sesuai ukuran pergelangan tangan',
+        'Single crochet di setiap rantai',
+        'Ulangi hingga lebar sesuai',
+        'Finishing dan pasang penutup gelang',
+    ],
+
+    packages: [
+        {
+            name: 'Paket Merakit',
+            description: 'Workshop rajut lengkap dengan tour guide, coach, merchandise, e-certificate, dan welcome drink. Durasi 1 hari, min. 20 peserta. Harga Rp194.000/pax',
+            highlight: 'Popular Package'
+        },
+        {
+            name: 'Paket Live-In',
+            description: 'Full experience dengan homestay, workshop, pertunjukan budaya, makan, merchandise, e-certificate, dan welcome drink. Durasi 3 hari 2 malam, min. 12 peserta. Harga Rp848.000/pax',
+            highlight: 'Full Experience'
+        },
+        {
+            name: 'Paket Walking Tour',
+            description: 'Jelajahi kampung rajut dengan guide berpengalaman, merchandise, dan welcome drink. Durasi 1 hari, min. 25 peserta. Harga Rp57.000/pax',
+            highlight: 'Explore Kampung'
+        }
+    ],
+
+    contact: {
+        instagram: '@merajutasakita',
+        email: 'merajutasa23@gmail.com',
+        phone: ['085624010106', '082118748464'],
+    },
 };

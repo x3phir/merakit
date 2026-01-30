@@ -3,17 +3,17 @@ import React from 'react';
 const AboutSection = () => {
     const images = [
         {
-            src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCmteg3Kyoe1izuWQfcm2UbvZ-WqFNkSvGc18HDF4y8kbsL81jfwI7eAHS4wCRkWGTULrNmu11u31cXe6_sBG6HLZk3tECXsRUIccYKT30DqVXx2_unoxidxUl2WfXHLempUwUCbNbmz6Qc--j5KANbY4HvaA7Kq-KUo03sRAFSyWJl62n2un9gxXV4vJkJA3HMp8ERwWCrEux-jKiLeznsHnt3BkipSYoxIXIsL2lPiFI0BdKFEGc_zpelQAWIisF1hT09NYYNEzUT',
+            src: '/images/gallery-1.jpg',
             alt: 'Women sitting in a circle knitting together',
             className: 'aspect-[3/4]'
         },
         {
-            src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuApfdnbelDRBau_0XtmtDZHRKl4xJf4m9Jw7dmLm0PCB2XTYltIhmer8iB16w1TwhI3fc7R8eCPgzVmiZlbS5aS01p7G9cCeyrBM2wOHSOsiSrPH82dII8wgKhh7aHHLCG5spnE3BmxVMQrZD0hhmd6Ii3HhaqUic3jCTMxnEGQbjThtr92QHvkfZ_rkaozCWUQ5qpTVsMTU4ltMmE1Vbvkb5iuatp8DS5iP1X2_fKfZzkOypNQsS7SbslL863TywGNKwqUSPm6DZCA',
+            src: '/images/gallery-4.jpg',
             alt: 'Colorful knitted fabric texture',
             className: 'aspect-[4/3]'
         },
         {
-            src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuByNHM-XJGOrlYBLav4MSwnNG65dmNa8BxWKl1vwv10Hq_bnvgpVvU32qfYPia5sVng6r0jK3RHfvAbOM5fb2KAia0K3x_bONpnEDTnyZE-ay4wvpYhiawCO6Dnx8OOChzV3ZY2iWI92OdJV8GqdszlqTv2mPe0obKZn8Oyn7aQgh4wMUxl2bK_Swu7l1bZ5T2Lp-480q7Ype6pr-Z0mhx6zcjl-lWRec0aFHWz8BJkVzxlJGPSZNDJqzBqasuO9cAreIwVcB4Ksmq0',
+            src: '/images/gallery-6.jpg',
             alt: 'Teaching knitting techniques',
             className: 'aspect-[3/4]'
         }

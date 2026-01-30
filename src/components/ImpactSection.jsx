@@ -32,7 +32,7 @@ const ImpactSection = () => {
         <section className="py-12 bg-white dark:bg-[#1a100c] border-y border-[#f4ebe7] dark:border-white/5" id="impact">
             <div className="max-w-[1280px] mx-auto px-6 md:px-10">
                 <div className="text-center mb-12 scroll-animate">
-                    <h2 className="text-2xl md:text-3xl font-bold text-[#1c120d] dark:text-white">Dampak Sosial Kami</h2>
+                    <h2 className="text-3xl md:text-4xl font-black text-[#1c120d] dark:text-white mb-4">Dampak Sosial Kami</h2>
                     <p className="text-[#1c120d]/60 dark:text-white/60 mt-2">Membangun perubahan nyata dari langkah kecil.</p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

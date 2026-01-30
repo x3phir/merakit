@@ -2,10 +2,11 @@ import React from 'react';
 
 const Navbar = ({ mobileMenuOpen, toggleMobileMenu, openWhatsApp }) => {
     const navItems = [
-        { label: 'About', href: '#about' },
-        { label: 'Impact', href: '#impact' },
-        { label: 'Packages', href: '#packages' },
-        { label: 'Gallery', href: '#gallery' },
+        { label: 'Tentang', href: '#about' },
+        { label: 'Dokumenter', href: '#documentary' },
+        { label: 'Paket', href: '#packages' },
+        { label: 'Katalog', href: '#catalog' },
+        { label: 'Galeri', href: '#gallery' },
         { label: 'Lokasi', href: '#location' },
     ];
 
@@ -60,7 +61,7 @@ const Navbar = ({ mobileMenuOpen, toggleMobileMenu, openWhatsApp }) => {
                             </h2>
                         </div>
 
-                        <div className="hidden md:flex items-center gap-8">
+                        <div className="hidden md:flex items-center gap-10 w-[60%]">
                             {navItems.map((item) => (
                                 <a
                                     key={item.href}
@@ -72,7 +73,7 @@ const Navbar = ({ mobileMenuOpen, toggleMobileMenu, openWhatsApp }) => {
                             ))}
                         </div>
 
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 absolute">
                             <button
                                 onClick={toggleMobileMenu}
                                 className="md:hidden flex items-center justify-center text-[#1c120d] dark:text-white"
