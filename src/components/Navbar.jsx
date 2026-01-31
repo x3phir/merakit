@@ -52,26 +52,17 @@ const Navbar = ({ mobileMenuOpen, toggleMobileMenu, openWhatsApp }) => {
             <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
                 <div className="w-full max-w-[1280px] rounded-full border border-white/20 bg-white/70 backdrop-blur-md dark:bg-background-dark/70 dark:border-white/10 shadow-lg transition-all duration-300">
                     <div className="flex items-center justify-between px-6 py-3 lg:px-8">
+                        {/* Left Side: Merakit Logo & Brand Name */}
                         <div className="flex items-center gap-3">
-                            <div className="flex items-center gap-2">
-                                <img
-                                    src="/images/logo-merakit.png"
-                                    alt="Logo Merakit"
-                                    className="h-10 w-auto object-contain"
-                                />
-                                <div className="h-6 w-[1px] bg-gray-300 dark:bg-white/20"></div>
-                                <img
-                                    src="/images/logo-innovillage.png"
-                                    alt="Logo Innovillage"
-                                    className="h-8 w-auto object-contain"
-                                />
-                            </div>
-                            <h2 className="text-base font-bold leading-tight tracking-tight text-[#1c120d] dark:text-white hidden sm:block">
-                                Merajut Asa Kita
-                            </h2>
+                            <img
+                                src="/images/logo-merakit.png"
+                                alt="Logo Merakit"
+                                className="h-10 w-auto object-contain"
+                            />
                         </div>
 
-                        <div className="hidden md:flex items-center gap-10 w-[60%]">
+                        {/* Center: Navigation Links (Desktop) */}
+                        <div className="hidden md:flex items-center justify-center gap-8">
                             {navItems.map((item) => (
                                 <a
                                     key={item.href}
@@ -83,7 +74,13 @@ const Navbar = ({ mobileMenuOpen, toggleMobileMenu, openWhatsApp }) => {
                             ))}
                         </div>
 
-                        <div className="flex items-center gap-4 absolute">
+                        {/* Right Side: Innovillage Logo & Mobile Menu */}
+                        <div className="flex items-center gap-4">
+                            <img
+                                src="/images/logo-innovillage.png"
+                                alt="Logo Innovillage"
+                                className="h-8 w-auto object-contain"
+                            />
                             <button
                                 onClick={toggleMobileMenu}
                                 className="md:hidden flex items-center justify-center text-[#1c120d] dark:text-white"

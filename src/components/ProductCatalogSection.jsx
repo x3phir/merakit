@@ -8,6 +8,7 @@ const ProductCatalogSection = ({ openWhatsApp }) => {
     const [selectedCategory, setSelectedCategory] = useState('semua');
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [visibleCount, setVisibleCount] = useState(3);
 
     // Data produk dari Shopee (update link sesuai produk asli)
     const products = [
@@ -375,7 +376,7 @@ const ProductCatalogSection = ({ openWhatsApp }) => {
                     viewport={{ once: true, amount: 0.1 }}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
-                    {filteredProducts.map((product) => (
+                    {filteredProducts.slice(0, visibleCount).map((product) => (
                         <ProductCard
                             key={product.id}
                             {...product}
@@ -384,6 +385,20 @@ const ProductCatalogSection = ({ openWhatsApp }) => {
                         />
                     ))}
                 </motion.div>
+
+                {/* View More Button */}
+                {filteredProducts.length > 3 && (
+                    <div className="flex justify-center mt-12">
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => setVisibleCount(prev => prev === 3 ? filteredProducts.length : 3)}
+                            className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full font-bold transition-all duration-300 transform"
+                        >
+                            {visibleCount === 3 ? `Lihat ${filteredProducts.length - 3} Produk Lainnya` : 'Sembunyikan, Lihat Lebih Sedikit'}
+                        </motion.button>
+                    </div>
+                )}
 
                 {/* Product Modal */}
                 <ProductModal
