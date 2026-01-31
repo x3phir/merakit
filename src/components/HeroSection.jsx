@@ -27,7 +27,7 @@ const HeroSection = ({ openWhatsApp }) => {
                     loop
                     playsInline
                 >
-                    <source src="/hero.mp4" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dm9xspnbe/video/upload/v1769744382/hero_drpyiy.mp4" type="video/mp4" />
                 </video>
 
                 {/* Fallback Image */}
@@ -99,7 +99,7 @@ const HeroSection = ({ openWhatsApp }) => {
                             controls
                             autoPlay
                         >
-                            <source src="/hero.mp4" type="video/mp4" />
+                            <source src="https://res.cloudinary.com/dm9xspnbe/video/upload/v1769744382/hero_drpyiy.mp4" type="video/mp4" />
                             Browser Anda tidak mendukung tag video.
                         </video>
                     </div>

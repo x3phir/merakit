@@ -9,14 +9,14 @@ const DocumentarySection = () => {
             id: 1,
             title: 'Dokumentasi Kegiatan MERAKIT',
             description: 'Video dokumentasi kegiatan dan aktivitas komunitas MERAKIT dalam memberdayakan masyarakat lokal.',
-            videoSrc: '/docum.mp4',
+            videoSrc: 'https://res.cloudinary.com/dm9xspnbe/video/upload/v1769832453/docum_j3itop.mp4',
             ref: videoRef1
         },
         {
             id: 2,
             title: 'Wawancara dengan Tim MERAKIT',
             description: 'Cerita inspiratif dan wawancara dengan para anggota dan penggerak komunitas MERAKIT.',
-            videoSrc: '/interview.mp4',
+            videoSrc: 'https://res.cloudinary.com/dm9xspnbe/video/upload/v1769832199/interview_1_ialjmt.mp4',
             ref: videoRef2
         }
     ];
