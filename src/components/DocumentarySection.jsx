@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 const DocumentarySection = () => {
     const videoRef1 = useRef(null);
     const videoRef2 = useRef(null);
+    const videoRef3 = useRef(null);
 
     const videos = [
         {
@@ -18,6 +19,13 @@ const DocumentarySection = () => {
             description: 'Cerita inspiratif dan wawancara dengan para anggota dan penggerak komunitas MERAKIT.',
             videoSrc: 'https://res.cloudinary.com/dm9xspnbe/video/upload/v1769832199/interview_1_ialjmt.mp4',
             ref: videoRef2
+        },
+        {
+            id: 3,
+            title: 'Kunjungan MERAKIT',
+            description: 'Momen kunjungan dan pengalaman bersama komunitas MERAKIT dalam kegiatan pemberdayaan masyarakat.',
+            videoSrc: 'https://res.cloudinary.com/dm9xspnbe/video/upload/v1778504146/IMG_2830_u6n6lh.mp4',
+            ref: videoRef3
         }
     ];
 
