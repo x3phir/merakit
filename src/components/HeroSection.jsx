@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const HeroSection = ({ openWhatsApp }) => {
     const [isMuted, setIsMuted] = useState(true);
     const [isLoaded, setIsLoaded] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const heroVideoRef = useRef(null);
 
     useEffect(() => {
         const video = document.getElementById('heroVideo');
