@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const HeroSection = ({ openWhatsApp }) => {
     const [isMuted, setIsMuted] = useState(true);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const heroVideoRef = useRef(null);
+
+    useEffect(() => {
+        const video = document.getElementById('heroVideo');
+        if (video) {
+            video.addEventListener('loadeddata', () => setIsLoaded(true));
+        }
+    }, []);
 
     const toggleSound = () => {
         const videoElement = document.getElementById('heroVideo');
@@ -11,32 +21,28 @@ const HeroSection = ({ openWhatsApp }) => {
         }
     };
 
-
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
     return (
         <section className="relative w-full pt-28 pb-10 px-4 md:px-8 lg:px-10">
             <div className="w-full max-w-[1400px] mx-auto rounded-[2rem] md:rounded-[3rem] h-[600px] md:h-[750px] relative overflow-hidden bg-gray-900 shadow-2xl">
-                {/* Video Background */}
                 <video
                     id="heroVideo"
-                    className="absolute inset-0 w-full h-full object-cover scale-105"
+                    className="absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-500"
                     autoPlay
-                    muted={isMuted}
+                    muted
                     loop
                     playsInline
+                    preload="metadata"
+                    loading="lazy"
+                    style={{ opacity: isLoaded ? 1 : 0 }}
+                    onLoadedData={() => setIsLoaded(true)}
+                    poster="https://res.cloudinary.com/dm9xspnbe/video/upload/v1769744382/hero_drpyiy.jpg"
                 >
                     <source src="https://res.cloudinary.com/dm9xspnbe/video/upload/v1769744382/hero_drpyiy.mp4" type="video/mp4" />
                 </video>
 
-                {/* Fallback Image */}
-                <div
-                    className="absolute inset-0 bg-cover bg-center scale-105 hidden"
-                    style={{
-                        backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRZW5jDnn1IJG1lOvkHxR37spR9pYYtaJTfTQzh9tgp241n711PhpobRg3u0giyOzGpYaPQxvRXN7JXcZZAZRgZcVXipjT7pskt2SfspADJlLEvZMQ40rdtl4nNpMHjh7fX1o5zq56_ErP6tx76_sgWAXjuOtFV7XZRIJWwlrI353As03B5JCS6SDrrQ4nX12kTHp9uVCTdAtizK8NpI0MxTQ9-7ItAkm9YzMGTZTCJ5dCZC5dEemES78Ohct-Mc3zCOUhQz6-w9oL')`
-                    }}
-                />
+                {!isLoaded && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 animate-pulse" />
+                )}
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
 
@@ -84,7 +90,6 @@ const HeroSection = ({ openWhatsApp }) => {
                 </button>
             </div>
 
-            {/* Video Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}>
                     <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl bg-black" onClick={e => e.stopPropagation()}>
@@ -98,9 +103,9 @@ const HeroSection = ({ openWhatsApp }) => {
                             className="w-full h-auto max-h-[80vh]"
                             controls
                             autoPlay
+                            preload="metadata"
                         >
                             <source src="https://res.cloudinary.com/dm9xspnbe/video/upload/v1769744382/hero_drpyiy.mp4" type="video/mp4" />
-                            Browser Anda tidak mendukung tag video.
                         </video>
                     </div>
                 </div>
