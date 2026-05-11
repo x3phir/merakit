@@ -23,8 +23,6 @@ const VideoCard = ({ video, index }) => {
         return () => observer.disconnect();
     }, []);
 
-    const thumbnailUrl = video.videoSrc.replace('/video/upload/', '/video/upload/f_jpg,q_auto:low/').replace('.mp4', '.jpg');
-
     return (
         <div
             ref={videoRef}
@@ -33,26 +31,22 @@ const VideoCard = ({ video, index }) => {
         >
             <div className="relative aspect-video bg-gray-900">
                 {isInView ? (
-                    <>
-                        <video
-                            ref={(el) => { video.ref.current = el; }}
-                            className="w-full h-full object-cover transition-opacity duration-300"
-                            style={{ opacity: isLoaded ? 1 : 0 }}
-                            controls
-                            preload="none"
-                            loading="lazy"
-                            onLoadedData={() => setIsLoaded(true)}
-                            onPlay={() => setIsLoaded(true)}
-                            poster={thumbnailUrl}
-                        >
-                            <source src={video.videoSrc} type="video/mp4" />
-                        </video>
-                        {!isLoaded && (
-                            <div className="absolute inset-0 bg-gray-900 animate-pulse" />
-                        )}
-                    </>
+                    <video
+                        className="w-full h-full object-cover transition-opacity duration-300"
+                        style={{ opacity: isLoaded ? 1 : 0 }}
+                        controls
+                        preload="none"
+                        onLoadedData={() => setIsLoaded(true)}
+                        onPlay={() => setIsLoaded(true)}
+                        poster=""
+                    >
+                        <source src={video.videoSrc} type="video/mp4" />
+                    </video>
                 ) : (
                     <div className="absolute inset-0 bg-gray-800" />
+                )}
+                {!isLoaded && isInView && (
+                    <div className="absolute inset-0 bg-gray-900 animate-pulse" />
                 )}
             </div>
 
@@ -79,22 +73,19 @@ const DocumentarySection = () => {
             id: 1,
             title: 'Dokumentasi Kegiatan MERAKIT',
             description: 'Video dokumentasi kegiatan dan aktivitas komunitas MERAKIT dalam memberdayakan masyarakat lokal.',
-            videoSrc: 'https://res.cloudinary.com/dm9xspnbe/video/upload/v1769832453/docum_j3itop.mp4',
-            ref: null
+            videoSrc: 'https://res.cloudinary.com/dm9xspnbe/video/upload/v1769832453/docum_j3itop.mp4'
         },
         {
             id: 2,
             title: 'Wawancara dengan Tim MERAKIT',
             description: 'Cerita inspiratif dan wawancara dengan para anggota dan penggerak komunitas MERAKIT.',
-            videoSrc: 'https://res.cloudinary.com/dm9xspnbe/video/upload/v1769832199/interview_1_ialjmt.mp4',
-            ref: null
+            videoSrc: 'https://res.cloudinary.com/dm9xspnbe/video/upload/v1769832199/interview_1_ialjmt.mp4'
         },
         {
             id: 3,
             title: 'Kunjungan MERAKIT',
             description: 'Momen kunjungan dan pengalaman bersama komunitas MERAKIT dalam kegiatan pemberdayaan masyarakat.',
-            videoSrc: 'https://res.cloudinary.com/dm9xspnbe/video/upload/v1778504146/IMG_2830_u6n6lh.mp4',
-            ref: null
+            videoSrc: 'https://res.cloudinary.com/dm9xspnbe/video/upload/v1778504146/IMG_2830_u6n6lh.mp4'
         }
     ];
 

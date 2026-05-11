@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
@@ -15,6 +15,24 @@ import './index.css';
 
 function App() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        );
+
+        const elements = document.querySelectorAll('.scroll-animate');
+        elements.forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
