@@ -5,7 +5,7 @@ const LocationSection = ({ openWhatsApp }) => {
         {
             icon: 'location_on',
             title: 'Alamat',
-            content: 'Kampung Binong Jati\nCibeunying Kidul, Bandung\nJawa Barat, Indonesia 40623'
+            content: 'Jl. Binong Jati No.124, Binong\nKec. Batununggal, Kota Bandung\nJawa Barat 40275'
         },
         {
             icon: 'phone',
