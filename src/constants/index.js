@@ -9,7 +9,7 @@ export const SITE_DESCRIPTION = 'Komunitas yang merajut harapan, karya, dan kebe
 export const CONTACT_INFO = {
     phone: '+62 822 1914 5422',
     email: 'info@merajutasakita.id',
-    address: 'Kampung Binong Jati, Cibeunying Kidul, Bandung, Jawa Barat 40623',
+    address: 'Jl. Binong Jati No.124, Binong\nKec. Batununggal, Kota Bandung\nJawa Barat 40275',
     instagram: 'https://www.instagram.com/merajutasakita/',
     whatsapp: 'https://wa.me/62082219145422',
 };
@@ -151,7 +151,7 @@ export const CHATBOT_KNOWLEDGE = {
     vision: `Memberdayakan masyarakat agar hidup setara melalui keterampilan rajut, kreativitas, dan kolaborasi sosial.`,
 
     location: {
-        address: 'Jl. Binong Jati No.124, Bandung, Jawa Barat',
+        address: 'Jl. Binong Jati No.124, Binong\nKec. Batununggal, Kota Bandung\nJawa Barat 40275',
         near: 'Alun-Alun Bandung & Kiara Arta Park',
     },
 
