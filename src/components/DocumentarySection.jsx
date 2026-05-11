@@ -1,71 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-
-const VideoCard = ({ video, index }) => {
-    const [isInView, setIsInView] = useState(false);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const videoRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsInView(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        if (videoRef.current) {
-            observer.observe(videoRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
-    return (
-        <div
-            ref={videoRef}
-            className="flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-[#1f1612] shadow-lg hover:shadow-2xl transition-all duration-500 scroll-animate group"
-            style={{ animationDelay: `${0.1 * index}s` }}
-        >
-            <div className="relative aspect-video bg-gray-900">
-                {isInView ? (
-                    <video
-                        className="w-full h-full object-cover transition-opacity duration-300"
-                        style={{ opacity: isLoaded ? 1 : 0 }}
-                        controls
-                        preload="none"
-                        onLoadedData={() => setIsLoaded(true)}
-                        onPlay={() => setIsLoaded(true)}
-                        poster=""
-                    >
-                        <source src={video.videoSrc} type="video/mp4" />
-                    </video>
-                ) : (
-                    <div className="absolute inset-0 bg-gray-800" />
-                )}
-                {!isLoaded && isInView && (
-                    <div className="absolute inset-0 bg-gray-900 animate-pulse" />
-                )}
-            </div>
-
-            <div className="p-6">
-                <div className="flex items-center gap-2 mb-3">
-                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wide">
-                        Dokumentasi
-                    </span>
-                </div>
-                <h4 className="text-xl font-bold text-[#1c120d] dark:text-white mb-2">
-                    {video.title}
-                </h4>
-                <p className="text-[#1c120d]/60 dark:text-white/60">
-                    {video.description}
-                </p>
-            </div>
-        </div>
-    );
-};
+import React from 'react';
 
 const DocumentarySection = () => {
     const videos = [
@@ -104,7 +37,35 @@ const DocumentarySection = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {videos.map((video, index) => (
-                        <VideoCard key={video.id} video={video} index={index} />
+                        <div
+                            key={video.id}
+                            className="flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-[#1f1612] shadow-lg hover:shadow-2xl transition-all duration-500 scroll-animate group"
+                            style={{ animationDelay: `${0.2 * index}s` }}
+                        >
+                            <div className="relative aspect-video bg-gray-900">
+                                <video
+                                    className="w-full h-full object-cover"
+                                    controls
+                                    preload="metadata"
+                                >
+                                    <source src={video.videoSrc} type="video/mp4" />
+                                </video>
+                            </div>
+
+                            <div className="p-6">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wide">
+                                        Dokumentasi
+                                    </span>
+                                </div>
+                                <h4 className="text-xl font-bold text-[#1c120d] dark:text-white mb-2">
+                                    {video.title}
+                                </h4>
+                                <p className="text-[#1c120d]/60 dark:text-white/60">
+                                    {video.description}
+                                </p>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>

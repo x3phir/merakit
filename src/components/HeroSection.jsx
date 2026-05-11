@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const HeroSection = ({ openWhatsApp }) => {
     const [isMuted, setIsMuted] = useState(true);
-    const [isLoaded, setIsLoaded] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-    useEffect(() => {
-        const video = document.getElementById('heroVideo');
-        if (video) {
-            video.addEventListener('loadeddata', () => setIsLoaded(true));
-        }
-    }, []);
 
     const toggleSound = () => {
         const videoElement = document.getElementById('heroVideo');
@@ -25,23 +17,15 @@ const HeroSection = ({ openWhatsApp }) => {
             <div className="w-full max-w-[1400px] mx-auto rounded-[2rem] md:rounded-[3rem] h-[600px] md:h-[750px] relative overflow-hidden bg-gray-900 shadow-2xl">
                 <video
                     id="heroVideo"
-                    className="absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-500"
+                    className="absolute inset-0 w-full h-full object-cover scale-105"
                     autoPlay
                     muted
                     loop
                     playsInline
                     preload="metadata"
-                    loading="lazy"
-                    style={{ opacity: isLoaded ? 1 : 0 }}
-                    onLoadedData={() => setIsLoaded(true)}
-                    poster="https://res.cloudinary.com/dm9xspnbe/video/upload/v1769744382/hero_drpyiy.jpg"
                 >
                     <source src="https://res.cloudinary.com/dm9xspnbe/video/upload/v1769744382/hero_drpyiy.mp4" type="video/mp4" />
                 </video>
-
-                {!isLoaded && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 animate-pulse" />
-                )}
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
 
